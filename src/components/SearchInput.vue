@@ -7,7 +7,7 @@
         type="text"
         placeholder="Search for a joke"
         class="input"
-        :disabled="chuckStore.isLoading"
+        :disabled="isLoading"
         @focus="showHistory = true"
         @blur="hideHistoryDelayed"
       />
@@ -65,7 +65,7 @@
   import MdiIcon from './MdiIcon.vue';
 
   const chuckStore = useChuckNorrisStore();
-  const { recentSearches, hasSearchHistory } = storeToRefs(chuckStore);
+  const { recentSearches, hasSearchHistory, isLoading } = storeToRefs(chuckStore);
   const searchInput = ref('');
   const showHistory = ref(false);
 
@@ -88,7 +88,6 @@
     chuckStore.clearSearchResults();
   };
 
-  // Função para esconder o histórico com delay
   const hideHistoryDelayed = () => {
     setTimeout(() => {
       showHistory.value = false;

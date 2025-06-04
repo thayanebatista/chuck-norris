@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+
 *,
 *::before,
 *::after {
@@ -16,8 +19,6 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   overflow-wrap: break-word;
-  color: var(--color-moonlight);
-  background: var(--gradient-night);
-  min-height: 100svh;
-  width: 100%;
+  color: $color-moonlight;
+  background: $gradient-night;
 }

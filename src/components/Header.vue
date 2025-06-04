@@ -18,19 +18,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-sm);
+  padding: $spacing-sm;
 
   .header-content {
     text-align: center;
 
     .main-title {
-      font-size: var(--font-size-2xl);
+      font-size: $font-size-2xl;
       font-weight: bold;
-      text-shadow: var(--shadow-text);
+      text-shadow: $shadow-text;
     }
 
     .subtitle {
-      font-size: var(--font-size-sm);
+      font-size: $font-size-sm;
       opacity: 0.8;
       font-style: italic;
     }

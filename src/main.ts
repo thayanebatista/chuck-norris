@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 
-import './styles/scss/main.scss';
+import './assets/scss/main.scss';
 import App from './App.vue';
 import pinia from './store';
 

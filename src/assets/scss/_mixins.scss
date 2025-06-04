@@ -1,7 +1,3 @@
-// ===== SCSS MIXINS =====
-// Mixins úteis para o projeto Chuck Norris
-
-// Responsive breakpoints
 @mixin mobile {
   @media (max-width: #{$breakpoint-sm - 1px}) {
     @content;
@@ -32,11 +28,16 @@
   }
 }
 
-// Flexbox utilities
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 @mixin flex-between {
@@ -56,7 +57,6 @@
   justify-content: center;
 }
 
-// Button mixins
 @mixin btn-base {
   display: inline-flex;
   align-items: center;
@@ -103,7 +103,6 @@
   }
 }
 
-// Card mixins
 @mixin card-western {
   background: $gradient-desert;
   border: 2px solid $color-leather;
@@ -112,16 +111,7 @@
   box-shadow: $shadow-lg;
   position: relative;
   overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: $gradient-gold;
-  }
+  text-align: center;
 }
 
 @mixin card-night {
@@ -131,9 +121,8 @@
   color: $color-moonlight;
 }
 
-// Text utilities
 @mixin text-western {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Roboto', sans-serif;
   text-shadow: $shadow-text;
   font-weight: bold;
 }
@@ -151,7 +140,6 @@
   text-shadow: 0 0 10px $color-campfire;
 }
 
-// Text truncation utilities
 @mixin truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -166,7 +154,6 @@
   text-overflow: ellipsis;
 }
 
-// Input mixins
 @mixin input-base {
   width: 100%;
   padding: $spacing-xs $spacing-sm;
@@ -189,7 +176,6 @@
   }
 }
 
-// Scrollbar customization
 @mixin custom-scrollbar {
   &::-webkit-scrollbar {
     width: 8px;
@@ -209,12 +195,10 @@
     }
   }
   
-  // Firefox
   scrollbar-width: thin;
   scrollbar-color: rgba($color-gold, 0.3) rgba($color-gray-800, 0.1);
 }
 
-// Animation mixins
 @mixin pulse {
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -240,7 +224,6 @@
   }
 }
 
-// Positioning utilities
 @mixin absolute-center {
   position: absolute;
   top: 50%;
@@ -256,7 +239,6 @@
   bottom: 0;
 }
 
-// Loading states
 @mixin skeleton {
   background: linear-gradient(
     90deg,
@@ -273,7 +255,6 @@
   100% { background-position: -200% 0; }
 }
 
-// Focus utilities
 @mixin focus-ring($color: $color-gold) {
   &:focus {
     outline: none;
@@ -281,7 +262,6 @@
   }
 }
 
-// Visually hidden (for accessibility)
 @mixin visually-hidden {
   position: absolute !important;
   width: 1px !important;

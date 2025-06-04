@@ -5,12 +5,12 @@
 </template>
 
 <script setup lang="ts">
-  import Home from './pages/Home.vue';
+  import Home from '@/pages/Home.vue';
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .app {
-    height: 100vh;
+    height: 100%;
     width: 100%;
   }
 </style>

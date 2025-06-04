@@ -4,20 +4,23 @@ import vue from '@vitejs/plugin-vue'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': '/src',
+    }
+  },
   css: {
     preprocessorOptions: {
       scss: {
         additionalData: `
-          @use "@/styles/scss/variables.scss" as *;
-          @use "@/styles/scss/mixins.scss" as *;
+          @import "@/assets/scss/variables";
+          @import "@/assets/scss/mixins";
         `
       }
     }
   },
-  resolve: {
-    alias: {
-      '@': '/src'
-    }
+  server: {
+    port: 8080,
   },
   build: {
     chunkSizeWarningLimit: 1000,

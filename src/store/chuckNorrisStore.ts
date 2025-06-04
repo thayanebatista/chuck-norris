@@ -9,7 +9,8 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
   const currentJoke = ref<ChuckNorrisJoke | null>(null);
   const searchResults = ref<ChuckNorrisJoke[]>([]);
   const searchHistory = ref<SearchHistoryItem[]>([]);
-  const isLoading = ref(false);
+  const searchTerm = ref<string>('');
+  const isLoading = ref<boolean>(false);
   const error = ref<string | null>(null);
   const lastSearchQuery = ref<string>('');
 
@@ -39,6 +40,8 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
   };
 
   const searchJokes = async (query: string): Promise<void> => {
+    searchTerm.value = query;
+
     if (!query.trim()) {
       searchResults.value = [];
       return;
@@ -116,7 +119,7 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
     isLoading,
     error,
     lastSearchQuery,
-
+    searchTerm,
     hasSearchResults,
     hasSearchHistory,
     recentSearches,

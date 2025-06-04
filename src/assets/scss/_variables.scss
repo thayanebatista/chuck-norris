@@ -1,0 +1,100 @@
+// ===== SCSS VARIABLES =====
+// Colors - Western Theme
+$color-primary: #d4a574;
+$color-primary-dark: #8b4513;
+$color-white: #faf8f3;
+$color-black: #2c1810;
+$color-gray-100: #f5f1eb;
+$color-gray-200: #ede4d3;
+$color-gray-300: #d4c4a8;
+$color-gray-400: #b8a082;
+$color-gray-500: #9c8463;
+$color-gray-600: #7a6b47;
+$color-gray-700: #5d4e2f;
+$color-gray-800: #3d2f1a;
+$color-gray-900: #2c1810;
+
+// Western Specific Colors
+$color-leather: #8b4513;
+$color-gold: #ffd700;
+$color-rust: #b7410e;
+$color-campfire: #ff6b35;
+$color-moonlight: #e6dcc6;
+$color-night-sky: #1a1611;
+$color-night-gold: #b8860b;
+
+// Additional Western Colors
+$color-sunset: #ff8c42;
+$color-desert: #edc9af;
+$color-dust: #d2b48c;
+$color-old-gold: #cfb53b;
+$color-starlight: #f4f1e8;
+$color-shadow-deep: #0f0c08;
+
+// Cores extras do Western
+$color-cactus: #6b8e23;
+$color-danger: #8b0000;
+$color-warning: #daa520;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 2.5rem;
+$spacing-xxl: 3rem;
+
+// Font Sizes
+$font-size-xs: 0.875rem;
+$font-size-sm: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3rem;
+
+// Border Radius
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+$shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+// Transitions
+$transition-fast: 0.15s ease-in-out;
+$transition-normal: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Gradients
+$gradient-primary: linear-gradient(180deg, $color-gray-300 0%, $color-gray-400 100%);
+$gradient-sunset: linear-gradient(180deg, $color-sunset 0%, $color-rust 100%);
+$gradient-desert: linear-gradient(180deg, $color-desert 0%, $color-dust 100%);
+$gradient-gold: linear-gradient(180deg, $color-gold 0%, $color-old-gold 100%);
+$gradient-night: linear-gradient(180deg, $color-night-sky 0%, $color-gray-900 100%);
+$gradient-campfire: linear-gradient(180deg, $color-campfire 0%, $color-rust 100%);
+$gradient-gold-night: linear-gradient(90deg, transparent 0%, $color-night-gold 10%, $color-gold 50%, $color-night-gold 90%, transparent 100%);
+
+// Breakpoints
+$bp-mobile-sm: 375px;
+$bp-mobile-lg: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-desktop-lg: 1440px;
+
+// Z-index
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+$z-toast: 1080; 
