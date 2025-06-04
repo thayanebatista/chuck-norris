@@ -1,0 +1,295 @@
+// ===== SCSS MIXINS =====
+// Mixins úteis para o projeto Chuck Norris
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin max-width($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Button mixins
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  font-weight: 600;
+  text-decoration: none;
+  transition: $transition-normal;
+  cursor: pointer;
+  border: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin btn-western {
+  @include btn-base;
+  background: $gradient-desert;
+  border: 2px solid $color-leather;
+  color: $color-black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: $shadow-md;
+  
+  &:hover:not(:disabled) {
+    background: $gradient-gold;
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin btn-danger {
+  @include btn-base;
+  background: $color-danger;
+  color: $color-white;
+  border: 2px solid $color-rust;
+  
+  &:hover:not(:disabled) {
+    background: $color-rust;
+    box-shadow: 0 0 20px rgba($color-danger, 0.5);
+  }
+}
+
+// Card mixins
+@mixin card-western {
+  background: $gradient-desert;
+  border: 2px solid $color-leather;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-lg;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $gradient-gold;
+  }
+}
+
+@mixin card-night {
+  @include card-western;
+  background: $gradient-night;
+  border-color: $color-night-gold;
+  color: $color-moonlight;
+}
+
+// Text utilities
+@mixin text-western {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: $shadow-text;
+  font-weight: bold;
+}
+
+@mixin text-gold {
+  background: $gradient-gold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+@mixin text-campfire {
+  color: $color-campfire;
+  text-shadow: 0 0 10px $color-campfire;
+}
+
+// Text truncation utilities
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Input mixins
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  border: 2px solid $color-moonlight;
+  background: $color-white;
+  color: $color-black;
+  font-size: $font-size-sm;
+  transition: $transition-normal;
+  
+  &:focus {
+    outline: none;
+    border-color: $color-gold;
+    box-shadow: 0 0 0 3px rgba($color-gold, 0.2);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Scrollbar customization
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba($color-gray-800, 0.1);
+    border-radius: $radius-sm;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-gold, 0.3);
+    border-radius: $radius-sm;
+    
+    &:hover {
+      background: rgba($color-gold, 0.5);
+    }
+  }
+  
+  // Firefox
+  scrollbar-width: thin;
+  scrollbar-color: rgba($color-gold, 0.3) rgba($color-gray-800, 0.1);
+}
+
+// Animation mixins
+@mixin pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@mixin hover-glow($color: $color-gold) {
+  transition: $transition-normal;
+  
+  &:hover {
+    box-shadow: 0 0 20px $color;
+  }
+}
+
+@mixin hover-lift {
+  transition: $transition-normal;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+// Positioning utilities
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// Loading states
+@mixin skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba($color-gray-300, 0.2) 25%,
+    rgba($color-gray-200, 0.4) 50%,
+    rgba($color-gray-300, 0.2) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// Focus utilities
+@mixin focus-ring($color: $color-gold) {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color, 0.3);
+  }
+}
+
+// Visually hidden (for accessibility)
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+} 

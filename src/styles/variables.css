@@ -1,0 +1,78 @@
+:root {
+  --bp-mobile-sm: 375px;
+  --bp-mobile-lg: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-desktop-lg: 1440px;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-xxl: 3rem;
+
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+
+  --color-primary: #d4a574; /* Dourado envelhecido como couro */
+  --color-primary-dark: #8b4513; /* Marrom sela */
+  --color-white: #faf8f3; /* Branco levemente amarelado como pergaminho */
+  --color-black: #2c1810; /* Preto com tom marrom escuro */
+  --color-gray-100: #f5f1eb; /* Bege muito claro como areia */
+  --color-gray-200: #ede4d3; /* Bege claro */
+  --color-gray-300: #d4c4a8; /* Bege médio como poeira */
+  --color-gray-400: #b8a082; /* Marrom claro arenoso */
+  --color-gray-500: #9c8463; /* Marrom médio */
+  --color-gray-600: #7a6b47; /* Marrom terra */
+  --color-gray-700: #5d4e2f; /* Marrom escuro como madeira velha */
+  --color-gray-800: #3d2f1a; /* Marrom muito escuro */
+  --color-gray-900: #2c1810; /* Quase preto com tom marrom */
+
+  /* Cores extras do Western */
+  --color-rust: #b7410e; /* Ferrugem */
+  --color-gold: #ffd700; /* Ouro brilhante */
+  --color-old-gold: #cfb53b; /* Ouro envelhecido */
+  --color-leather: #8b4513; /* Couro */
+  --color-dust: #d2b48c; /* Poeira */
+  --color-desert: #edc9af; /* Deserto */
+  --color-sunset: #ff8c42; /* Pôr do sol */
+  --color-cactus: #6b8e23; /* Verde cactus */
+  --color-danger: #8b0000; /* Vermelho sangue escuro */
+  --color-warning: #daa520; /* Dourado de alerta */
+
+  /* Modo Noturno - Western Night Theme */
+  --color-night-sky: #1a1611; /* Céu noturno do deserto */
+  --color-moonlight: #e6dcc6; /* Luz da lua */
+  --color-campfire: #ff6b35; /* Fogo de acampamento */
+  --color-night-gold: #b8860b; /* Ouro mais suave para noite */
+  --color-starlight: #f4f1e8; /* Luz das estrelas */
+  --color-shadow-deep: #0f0c08; /* Sombra profunda da noite */
+
+  --gradient-primary: linear-gradient(180deg, var(--color-gray-300) 0%, var(--color-gray-400) 100%);
+  --gradient-sunset: linear-gradient(180deg, var(--color-sunset) 0%, var(--color-rust) 100%);
+  --gradient-desert: linear-gradient(180deg, var(--color-desert) 0%, var(--color-dust) 100%);
+  --gradient-gold: linear-gradient(180deg, var(--color-gold) 0%, var(--color-old-gold) 100%);
+  --gradient-night: linear-gradient(180deg, var(--color-night-sky) 0%, var(--color-gray-900) 100%);
+  --gradient-campfire: linear-gradient(180deg, var(--color-campfire) 0%, var(--color-rust) 100%);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
