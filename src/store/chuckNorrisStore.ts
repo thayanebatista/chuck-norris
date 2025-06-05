@@ -14,7 +14,6 @@ export const useChuckNorrisStore = defineStore(
     const currentJoke = ref<ChuckNorrisJoke | null>(null);
     const searchResults = ref<ChuckNorrisJoke[]>([]);
     const searchHistory = ref<SearchHistoryItem[]>([]);
-    const searchTerm = ref<string>('');
     const isLoading = ref<boolean>(false);
     const error = ref<string | null>(null);
     const lastSearchQuery = ref<string>('');
@@ -27,7 +26,7 @@ export const useChuckNorrisStore = defineStore(
         isLoading.value = true;
         error.value = null;
         searchResults.value = [];
-        searchTerm.value = '';
+        lastSearchQuery.value = '';
         currentJoke.value = null;
 
         const joke = await chuckNorrisService.getRandomJoke();
@@ -41,25 +40,30 @@ export const useChuckNorrisStore = defineStore(
     };
 
     const searchJokes = async (query: string): Promise<void> => {
-      searchTerm.value = query;
+      const trimmedQuery = query.trim();
+
+      if (isLoading.value && lastSearchQuery.value === trimmedQuery) {
+        return;
+      }
+
       currentJoke.value = null;
 
-      if (!query.trim()) {
+      if (!trimmedQuery) {
         searchResults.value = [];
+        lastSearchQuery.value = '';
         return;
       }
 
       try {
         isLoading.value = true;
         error.value = null;
-        lastSearchQuery.value = query.trim();
+        lastSearchQuery.value = trimmedQuery;
 
-        const encodedQuery = encodeURIComponent(query.trim());
+        const encodedQuery = encodeURIComponent(trimmedQuery);
         const result = await chuckNorrisService.search(encodedQuery);
-
         searchResults.value = result.result;
 
-        addToSearchHistory(query.trim(), result.total);
+        addToSearchHistory(trimmedQuery, result.total);
       } catch (err) {
         searchResults.value = [];
         error.value = getErrorMessage(err);
@@ -74,7 +78,7 @@ export const useChuckNorrisStore = defineStore(
       );
 
       const historyItem: SearchHistoryItem = {
-        id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: crypto.randomUUID(),
         query,
         timestamp: Date.now(),
         resultsCount,
@@ -99,25 +103,11 @@ export const useChuckNorrisStore = defineStore(
       searchHistory.value = searchHistory.value.filter(item => item.id !== id);
     };
 
-    const repeatSearch = async (query: string): Promise<void> => {
-      await searchJokes(query);
-    };
-
-    const clearSearchResults = (): void => {
-      searchResults.value = [];
-      lastSearchQuery.value = '';
-    };
-
-    const clearError = (): void => {
-      error.value = null;
-    };
-
-    const resetStore = (): void => {
+    const clearAll = (): void => {
       currentJoke.value = null;
       searchResults.value = [];
-      searchHistory.value = [];
-      searchTerm.value = '';
-      isLoading.value = false;
+      lastSearchQuery.value = '';
+      error.value = null;
     };
 
     return {
@@ -127,19 +117,14 @@ export const useChuckNorrisStore = defineStore(
       isLoading,
       error,
       lastSearchQuery,
-      searchTerm,
       hasSearchResults,
       hasSearchHistory,
 
       fetchRandomJoke,
       searchJokes,
-      addToSearchHistory,
       clearSearchHistory,
       removeFromHistory,
-      repeatSearch,
-      clearSearchResults,
-      clearError,
-      resetStore,
+      clearAll,
     };
   },
   {
