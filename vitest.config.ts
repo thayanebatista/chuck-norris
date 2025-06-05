@@ -42,7 +42,11 @@ export default defineConfig({
     testTimeout: 10000,
     hookTimeout: 10000,
     deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
+      optimizer: {
+        web: {
+          include: ['@vue', '@vueuse', 'vue-demi'],
+        },
+      },
     },
     environmentOptions: {
       jsdom: {

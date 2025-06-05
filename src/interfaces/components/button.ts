@@ -1,5 +1,5 @@
 export interface ButtonProps {
-  label: string;
+  label?: string;
   type: 'button' | 'submit' | 'reset';
   disabled: boolean;
   ariaLabel?: string;

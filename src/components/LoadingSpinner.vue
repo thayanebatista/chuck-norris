@@ -1,0 +1,49 @@
+<template>
+  <div
+    class="loading-spinner"
+    role="status"
+    aria-label="Loading"
+  >
+    <div class="spinner" />
+    <span class="sr-only">Loading...</span>
+  </div>
+</template>
+
+<script setup lang="ts">
+  // Componente de loading spinner
+</script>
+
+<style scoped lang="scss">
+  .loading-spinner {
+    @include flex-center;
+    width: 100%;
+    padding: $spacing-md;
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid $color-night-gold;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

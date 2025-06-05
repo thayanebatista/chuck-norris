@@ -9,49 +9,72 @@
         class="input"
         :class="{ 'has-text': searchInput }"
         :disabled="isLoading"
+        aria-label="Search for Chuck Norris jokes"
         @focus="showHistory = true"
         @blur="hideHistoryDelayed"
       />
-      <button
+      <WesternButton
         v-if="searchInput"
         class="clear-button"
         type="button"
+        :disabled="false"
         aria-label="Clear search"
         @click="clearSearch"
       >
-        <MdiIcon name="close" />
-      </button>
+        <template #icon>
+          <MdiIcon
+            name="close"
+            aria-hidden="true"
+          />
+        </template>
+      </WesternButton>
 
       <Transition name="history-search-dropdown">
         <div
           v-if="hasSearchHistory && showHistory"
           class="history-dropdown"
         >
-          <div
-            v-for="search in recentSearches"
-            :key="search.id"
-            class="history-item"
-            @click="selectHistoryItem(search)"
+          <ul
+            class="history-list"
+            aria-label="Search history"
           >
-            <MdiIcon
-              name="history"
-              class="history-icon"
-            />
-            <span class="history-query">{{ search.query }}</span>
-            <button
-              class="history-remove"
-              @click.stop="removeHistoryItem(search)"
+            <li
+              v-for="search in searchHistory"
+              :key="search.id"
+              class="history-item"
+              @click="selectHistoryItem(search)"
             >
-              <MdiIcon name="close" />
-            </button>
-          </div>
+              <MdiIcon
+                name="history"
+                class="history-icon"
+                aria-hidden="true"
+              />
+              <span class="history-query">{{ search.query }}</span>
+              <WesternButton
+                type="button"
+                :disabled="false"
+                class="history-remove"
+                aria-label="Remove from history"
+                @click.stop="removeHistoryItem(search)"
+              >
+                <template #icon>
+                  <MdiIcon
+                    name="close"
+                    aria-hidden="true"
+                  />
+                </template>
+              </WesternButton>
+            </li>
+          </ul>
           <div class="clear-history-section">
-            <button
+            <WesternButton
               class="clear-history-button"
+              type="button"
+              label="Clear History"
+              :disabled="false"
+              aria-label="Clear history"
               @click="chuckStore.clearSearchHistory()"
-            >
-              Clear History
-            </button>
+            />
           </div>
         </div>
       </Transition>
@@ -67,9 +90,10 @@
   import type { SearchHistoryItem } from '../interfaces/store/chuckNorrisStore';
 
   import MdiIcon from './MdiIcon.vue';
+  import WesternButton from './WesternButton.vue';
 
   const chuckStore = useChuckNorrisStore();
-  const { recentSearches, hasSearchHistory, isLoading, searchTerm } =
+  const { searchHistory, hasSearchHistory, isLoading, searchTerm } =
     storeToRefs(chuckStore);
   const searchInput = ref('');
   const showHistory = ref(false);
@@ -174,6 +198,12 @@
         margin-top: 2px;
         @include custom-scrollbar;
 
+        .history-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
         .history-item {
           @include flex-between;
           padding: $spacing-sm $spacing-md;
@@ -245,7 +275,6 @@
     }
   }
 
-  // Animações da transição
   .history-search-dropdown-enter-active {
     transition: all 0.2s ease-out;
   }

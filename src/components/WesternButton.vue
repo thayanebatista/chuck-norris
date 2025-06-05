@@ -4,7 +4,7 @@
     :type="type"
     :disabled="disabled"
     :aria-label="ariaLabel || label"
-    @click="handleClick"
+    @click="handleClick($event)"
   >
     {{ label }}
     <slot name="icon" />
@@ -17,12 +17,12 @@
   const props = defineProps<ButtonProps>();
 
   const emit = defineEmits<{
-    click: [];
+    click: [event: MouseEvent];
   }>();
 
-  const handleClick = () => {
+  const handleClick = (event: MouseEvent) => {
     if (!props.disabled) {
-      emit('click');
+      emit('click', event);
     }
   };
 </script>

@@ -78,16 +78,16 @@
 
   .joke-list-enter-active,
   .joke-list-leave-active {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease-in-out;
   }
 
   .joke-list-enter-from,
   .joke-list-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0.95);
   }
 
   .joke-list-move {
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease-in-out;
   }
 </style>

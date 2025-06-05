@@ -1,7 +1,8 @@
 <template>
   <div class="feeling-lucky-button">
-    <Button
+    <WesternButton
       label="Feeling lucky"
+      type="button"
       :aria-label="'Feeling lucky'"
       :disabled="isLoading"
       @click="handleFeelingLucky"
@@ -12,7 +13,7 @@
           class="feeling-lucky-button-icon"
         />
       </template>
-    </Button>
+    </WesternButton>
   </div>
 </template>
 
@@ -20,8 +21,8 @@
   import { storeToRefs } from 'pinia';
   import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
-  import Button from './Button.vue';
   import MdiIcon from './MdiIcon.vue';
+  import WesternButton from './WesternButton.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
   const { isLoading } = storeToRefs(chuckNorrisStore);

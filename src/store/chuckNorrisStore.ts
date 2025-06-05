@@ -21,12 +21,6 @@ export const useChuckNorrisStore = defineStore(
 
     const hasSearchResults = computed(() => searchResults.value.length > 0);
     const hasSearchHistory = computed(() => searchHistory.value.length > 0);
-    const recentSearches = computed(() =>
-      searchHistory.value
-        .slice()
-        .sort((a, b) => b.timestamp - a.timestamp)
-        .slice(0, 10),
-    );
 
     const fetchRandomJoke = async (): Promise<void> => {
       try {
@@ -34,12 +28,13 @@ export const useChuckNorrisStore = defineStore(
         error.value = null;
         searchResults.value = [];
         searchTerm.value = '';
+        currentJoke.value = null;
 
         const joke = await chuckNorrisService.getRandomJoke();
         currentJoke.value = joke;
       } catch (err) {
+        currentJoke.value = null;
         error.value = getErrorMessage(err);
-        throw new Error(`Error fetching random joke: ${err}`);
       } finally {
         isLoading.value = false;
       }
@@ -68,7 +63,6 @@ export const useChuckNorrisStore = defineStore(
       } catch (err) {
         searchResults.value = [];
         error.value = getErrorMessage(err);
-        throw new Error(`Error searching jokes: ${err}`);
       } finally {
         isLoading.value = false;
       }
@@ -92,11 +86,9 @@ export const useChuckNorrisStore = defineStore(
         searchHistory.value.push(historyItem);
       }
 
-      if (searchHistory.value.length > 50) {
-        searchHistory.value = searchHistory.value
-          .sort((a, b) => b.timestamp - a.timestamp)
-          .slice(0, 50);
-      }
+      searchHistory.value = searchHistory.value
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .slice(0, 10);
     };
 
     const clearSearchHistory = (): void => {
@@ -120,6 +112,14 @@ export const useChuckNorrisStore = defineStore(
       error.value = null;
     };
 
+    const resetStore = (): void => {
+      currentJoke.value = null;
+      searchResults.value = [];
+      searchHistory.value = [];
+      searchTerm.value = '';
+      isLoading.value = false;
+    };
+
     return {
       currentJoke,
       searchResults,
@@ -130,7 +130,6 @@ export const useChuckNorrisStore = defineStore(
       searchTerm,
       hasSearchResults,
       hasSearchHistory,
-      recentSearches,
 
       fetchRandomJoke,
       searchJokes,
@@ -140,6 +139,7 @@ export const useChuckNorrisStore = defineStore(
       repeatSearch,
       clearSearchResults,
       clearError,
+      resetStore,
     };
   },
   {

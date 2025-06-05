@@ -6,7 +6,7 @@
     >
       <span
         v-if="part.match"
-        class="highlight"
+        :class="props.highlightClass"
         >{{ part.text }}</span
       >
       <span v-else>{{ part.text }}</span>
