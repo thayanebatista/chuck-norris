@@ -3,7 +3,15 @@
     <Header />
     <div class="home-content">
       <SearchInput />
+      <FeelingLuckyButton />
       <JokeCard
+        v-if="currentJoke"
+        :joke="currentJoke"
+        :search-term="''"
+        class="joke-card"
+      />
+      <JokeCard
+        v-if="jokeResults.length > 0"
         v-for="joke in jokeResults"
         :key="joke.id"
         :joke="joke"
@@ -21,9 +29,10 @@
   import Header from '@/components/Header.vue';
   import JokeCard from '@/components/JokeCard.vue';
   import SearchInput from '@/components/SearchInput.vue';
+  import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
-  const { searchResults: jokeResults, searchTerm } = storeToRefs(chuckNorrisStore);
+  const { searchResults: jokeResults, searchTerm, currentJoke } = storeToRefs(chuckNorrisStore);
 
 </script>
 <style scoped lang="scss">

@@ -27,6 +27,8 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
     try {
       isLoading.value = true;
       error.value = null;
+      searchResults.value = [];
+      searchTerm.value = '';
 
       const joke = await chuckNorrisService.getRandomJoke();
       currentJoke.value = joke;
@@ -41,6 +43,7 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
 
   const searchJokes = async (query: string): Promise<void> => {
     searchTerm.value = query;
+    currentJoke.value = null;
 
     if (!query.trim()) {
       searchResults.value = [];
@@ -137,5 +140,6 @@ export const useChuckNorrisStore = defineStore('chuckNorris', () => {
   persist: {
     key: 'chuck-norris-store',
     storage: localStorage,
+    pick: ['searchHistory']
   }
 });

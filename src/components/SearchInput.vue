@@ -7,6 +7,7 @@
         type="text"
         placeholder="Search for a joke"
         class="input"
+        :class="{ 'has-text': searchInput }"
         :disabled="isLoading"
         @focus="showHistory = true"
         @blur="hideHistoryDelayed"
@@ -65,9 +66,13 @@
   import MdiIcon from './MdiIcon.vue';
 
   const chuckStore = useChuckNorrisStore();
-  const { recentSearches, hasSearchHistory, isLoading } = storeToRefs(chuckStore);
+  const { recentSearches, hasSearchHistory, isLoading, searchTerm } = storeToRefs(chuckStore);
   const searchInput = ref('');
   const showHistory = ref(false);
+
+  watch(searchTerm, (newValue) => {
+    searchInput.value = newValue;
+  });
 
   const doSearch = (search: string) => {
     if (search.trim()) {
@@ -116,6 +121,11 @@
 
     .input {
       @include input-base;
+      transition: padding-right 0.2s ease;
+      
+      &.has-text {
+        padding-right: 40px;
+      }
       
       &:focus {
         border-color: $color-gold;
@@ -136,8 +146,9 @@
       border: none;
       color: $color-gray-500;
       cursor: pointer;
-      padding: 0;
+      padding: 4px;
       @include flex-center;
+      z-index: 1;
 
       &:hover {
         color: $color-danger;

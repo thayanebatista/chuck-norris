@@ -60,16 +60,30 @@
     letter-spacing: 0.5px;
     opacity: 0.9;
 
+    .joke-card-categories-title {
+      font-size: $font-size-xs;
+      color: $color-starlight;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      opacity: 0.7;
+    }
+
     .joke-card-categories-list {
       display: flex;
       flex-wrap: wrap;
       gap: $spacing-xs;
-      
+
       .joke-card-category {
-        background: rgba($color-gold, 0.1);
+        cursor: pointer;
+        background: $color-black;
         padding: $spacing-xs $spacing-sm;
         border-radius: $radius-md;
         box-shadow: $shadow-md;
+        transition: $transition-normal;
+
+        &:hover {
+          background: $color-gray-800;
+        }
       }
     }
   }
