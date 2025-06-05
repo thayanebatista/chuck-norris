@@ -62,7 +62,7 @@ beforeEach(() => {
   const pinia = createPinia();
   setActivePinia(pinia);
   const chuckNorrisStore = useChuckNorrisStore();
-  chuckNorrisStore.resetStore();
+  chuckNorrisStore.clearAll();
 });
 
 afterEach(() => {

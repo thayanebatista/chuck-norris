@@ -103,7 +103,7 @@
     if (search.trim()) {
       chuckStore.searchJokes(search);
     } else {
-      chuckStore.clearSearchResults();
+      chuckStore.clearAll();
     }
   };
 
@@ -119,7 +119,7 @@
 
   const clearSearch = () => {
     searchInput.value = '';
-    chuckStore.clearSearchResults();
+    chuckStore.clearAll();
   };
 
   const hideHistoryDelayed = () => {

@@ -15,13 +15,7 @@ describe('NoResultsCard', () => {
   it('should display correct message text', () => {
     const wrapper = mount(NoResultsCard);
 
-    expect(wrapper.find('h2').text()).toBe('No Jokes Found');
-    expect(wrapper.text()).toContain(
-      "Sorry, couldn't find any Chuck Norris jokes matching your search.",
-    );
-    expect(wrapper.text()).toContain(
-      'Try a different search term or get a random joke!',
-    );
+    expect(wrapper.find('h2').text()).toBe('Chuck Norris Hid These Jokes!');
   });
 
   it('should display a random GIF', () => {

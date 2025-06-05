@@ -124,6 +124,7 @@ export const useChuckNorrisStore = defineStore(
       searchJokes,
       clearSearchHistory,
       removeFromHistory,
+      addToSearchHistory,
       clearAll,
     };
   },
