@@ -1,43 +1,54 @@
 <template>
-  <div
-    class="loading-spinner"
-    role="status"
-    aria-label="Loading"
-  >
-    <div class="spinner" />
-    <span class="sr-only">Loading...</span>
-  </div>
+  <Teleport to="body">
+    <div
+      v-if="visible"
+      class="loading-overlay"
+      role="status"
+      aria-label="Loading"
+      @click.stop
+      @keydown.stop
+    >
+      <div class="loading-content">
+        <div class="spinner" />
+      </div>
+    </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
-  // Componente de loading spinner
+  interface Props {
+    visible: boolean;
+  }
+
+  defineProps<Props>();
 </script>
 
 <style scoped lang="scss">
-  .loading-spinner {
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color-black, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
     @include flex-center;
-    width: 100%;
-    padding: $spacing-md;
 
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid $color-night-gold;
-      border-radius: 50%;
-      border-top-color: transparent;
-      animation: spin 1s linear infinite;
-    }
+    pointer-events: all;
+    user-select: none;
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .loading-content {
+      @include flex-column;
+
+      .spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid $color-night-gold;
+        border-radius: $radius-full;
+        border-top-color: transparent;
+        animation: spin 1.2s linear infinite;
+      }
     }
   }
 

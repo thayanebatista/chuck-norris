@@ -5,8 +5,6 @@
       <SearchInput />
       <FeelingLuckyButton />
 
-      <LoadingSpinner v-if="isLoading" />
-
       <ErrorMessage
         v-if="error"
         :message="error"
@@ -43,7 +41,6 @@
   import JokeCard from '@/components/JokeCard.vue';
   import SearchInput from '@/components/SearchInput.vue';
   import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
-  import LoadingSpinner from '@/components/LoadingSpinner.vue';
   import ErrorMessage from '@/components/ErrorMessage.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
@@ -51,7 +48,6 @@
     searchResults: jokeResults,
     searchTerm,
     currentJoke,
-    isLoading,
     error,
   } = storeToRefs(chuckNorrisStore);
 
