@@ -10,6 +10,7 @@
         :class="{ 'has-text': searchInput }"
         :disabled="isLoading"
         aria-label="Search for Chuck Norris jokes"
+        @input="onInputChange"
         @focus="showHistory = true"
         @blur="hideHistoryDelayed"
       />
@@ -83,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
+  import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useDebouncer } from '../utils/useDebouncer';
   import { useChuckNorrisStore } from '../store/chuckNorrisStore';
@@ -93,14 +94,10 @@
   import WesternButton from './WesternButton.vue';
 
   const chuckStore = useChuckNorrisStore();
-  const { searchHistory, hasSearchHistory, isLoading, searchTerm } =
+  const { searchHistory, hasSearchHistory, isLoading } =
     storeToRefs(chuckStore);
   const searchInput = ref('');
   const showHistory = ref(false);
-
-  watch(searchTerm, newValue => {
-    searchInput.value = newValue;
-  });
 
   const doSearch = (search: string) => {
     if (search.trim()) {
@@ -112,9 +109,13 @@
 
   const debouncedSearchInput = useDebouncer(doSearch, 500);
 
-  watch(searchInput, value => {
+  const handleInputChange = (value: string) => {
     debouncedSearchInput(value);
-  });
+  };
+
+  const onInputChange = () => {
+    handleInputChange(searchInput.value);
+  };
 
   const clearSearch = () => {
     searchInput.value = '';
@@ -130,7 +131,7 @@
   const selectHistoryItem = (search: SearchHistoryItem) => {
     searchInput.value = search.query;
     showHistory.value = false;
-    doSearch(search.query);
+    chuckStore.searchJokes(search.query);
   };
 
   const removeHistoryItem = (search: SearchHistoryItem) => {

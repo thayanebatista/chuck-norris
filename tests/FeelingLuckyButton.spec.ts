@@ -1,15 +1,11 @@
 import { mount } from '@vue/test-utils';
+import { describe, it, expect, vi } from 'vitest';
 import { createPinia, setActivePinia } from 'pinia';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
 import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
 
 describe('FeelingLuckyButton', () => {
-  beforeEach(() => {
-    setActivePinia(createPinia());
-  });
-
   it('should render button with correct properties and styling', () => {
     const wrapper = mount(FeelingLuckyButton);
 

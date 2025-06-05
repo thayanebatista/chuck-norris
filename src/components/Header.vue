@@ -21,9 +21,7 @@
       text-align: center;
 
       .main-title {
-        font-size: $font-size-2xl;
-        font-weight: bold;
-        text-shadow: $shadow-text;
+        @include heading-western-main;
       }
 
       .subtitle {

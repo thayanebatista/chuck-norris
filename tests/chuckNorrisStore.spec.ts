@@ -1,12 +1,14 @@
+import { createPinia, setActivePinia } from 'pinia';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { setActivePinia, createPinia } from 'pinia';
 import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 import { chuckNorrisService } from '@/api/chuckNorris.service';
 
 describe('chuckNorrisStore', () => {
+  let pinia: ReturnType<typeof createPinia>;
+
   beforeEach(() => {
-    setActivePinia(createPinia());
-    vi.clearAllMocks();
+    pinia = createPinia();
+    setActivePinia(pinia);
   });
 
   const mockJoke = {
@@ -51,7 +53,6 @@ describe('chuckNorrisStore', () => {
       expect(mockSearch).toHaveBeenCalledOnce();
       expect(mockSearch).toHaveBeenCalledWith('test');
       expect(store.searchResults).toEqual(mockSearchResult.result);
-      expect(store.searchTerm).toBe(query);
       expect(store.isLoading).toBe(false);
       expect(store.error).toBeNull();
     });
@@ -82,7 +83,6 @@ describe('chuckNorrisStore', () => {
       expect(mockSearch).toHaveBeenCalledOnce();
       expect(mockSearch).toHaveBeenCalledWith('test%20query%20with%20spaces');
       expect(store.searchResults).toEqual(mockSearchResult.result);
-      expect(store.searchTerm).toBe(query);
       expect(store.isLoading).toBe(false);
       expect(store.error).toBeNull();
     });
@@ -95,7 +95,6 @@ describe('chuckNorrisStore', () => {
 
       expect(mockSearch).not.toHaveBeenCalled();
       expect(store.searchResults).toEqual([]);
-      expect(store.searchTerm).toBe('');
     });
 
     it('should not search with whitespace only query', async () => {
@@ -106,7 +105,6 @@ describe('chuckNorrisStore', () => {
 
       expect(mockSearch).not.toHaveBeenCalled();
       expect(store.searchResults).toEqual([]);
-      expect(store.searchTerm).toBe('   ');
     });
   });
 

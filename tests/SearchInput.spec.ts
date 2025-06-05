@@ -1,15 +1,10 @@
 import { mount } from '@vue/test-utils';
-import { createPinia, setActivePinia } from 'pinia';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
 import SearchInput from '@/components/SearchInput.vue';
 
 describe('SearchInput', () => {
-  beforeEach(() => {
-    setActivePinia(createPinia());
-  });
-
   it('should render search input with correct attributes', () => {
     const wrapper = mount(SearchInput);
 
@@ -47,6 +42,10 @@ describe('SearchInput', () => {
 
     await input.setValue('test');
     await wrapper.get('button[aria-label="Clear search"]').trigger('click');
+
+    await new Promise(resolve => setTimeout(resolve, 600));
+    await wrapper.vm.$nextTick();
+
     expect((input.element as HTMLInputElement).value).toBe('');
   });
 

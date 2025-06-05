@@ -59,9 +59,10 @@ const sessionStorageMock = {
 Object.defineProperty(window, 'sessionStorage', { value: sessionStorageMock });
 
 beforeEach(() => {
-  setActivePinia(createPinia());
-  const store = useChuckNorrisStore();
-  store.resetStore();
+  const pinia = createPinia();
+  setActivePinia(pinia);
+  const chuckNorrisStore = useChuckNorrisStore();
+  chuckNorrisStore.resetStore();
 });
 
 afterEach(() => {

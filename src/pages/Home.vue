@@ -24,16 +24,21 @@
             v-for="joke in jokeResults"
             :key="joke.id"
             :joke="joke"
-            :search-term="searchTerm"
+            :search-term="lastSearchQuery"
             class="joke-card"
           />
         </div>
+        <NoResultsCard
+          v-if="shouldShowNoResults"
+          class="no-results"
+        />
       </TransitionGroup>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
@@ -42,20 +47,32 @@
   import SearchInput from '@/components/SearchInput.vue';
   import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
   import ErrorMessage from '@/components/ErrorMessage.vue';
+  import NoResultsCard from '@/components/NoResultsCard.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
   const {
     searchResults: jokeResults,
-    searchTerm,
     currentJoke,
     error,
+    isLoading,
+    lastSearchQuery,
   } = storeToRefs(chuckNorrisStore);
+
+  const shouldShowNoResults = computed(() => {
+    return (
+      lastSearchQuery.value.trim() !== '' &&
+      jokeResults.value.length === 0 &&
+      !currentJoke.value &&
+      !error.value &&
+      !isLoading.value
+    );
+  });
 
   const handleRetry = async () => {
     if (currentJoke.value) {
       await chuckNorrisStore.fetchRandomJoke();
-    } else if (searchTerm.value) {
-      await chuckNorrisStore.searchJokes(searchTerm.value);
+    } else if (lastSearchQuery.value) {
+      await chuckNorrisStore.searchJokes(lastSearchQuery.value);
     }
   };
 </script>

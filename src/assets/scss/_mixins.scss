@@ -68,7 +68,7 @@
   transition: $transition-normal;
   cursor: pointer;
   border: none;
-  
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -83,7 +83,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: $shadow-md;
-  
+
   &:hover:not(:disabled) {
     background: $gradient-gold;
     transform: translateY(-2px);
@@ -96,7 +96,7 @@
   background: $color-danger;
   color: $color-white;
   border: 2px solid $color-rust;
-  
+
   &:hover:not(:disabled) {
     background: $color-rust;
     box-shadow: 0 0 20px rgba($color-danger, 0.5);
@@ -163,13 +163,13 @@
   color: $color-black;
   font-size: $font-size-sm;
   transition: $transition-normal;
-  
+
   &:focus {
     outline: none;
     border-color: $color-gold;
     box-shadow: 0 0 0 3px rgba($color-gold, 0.2);
   }
-  
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -180,21 +180,21 @@
   &::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: rgba($color-gray-800, 0.1);
     border-radius: $radius-sm;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: rgba($color-gold, 0.3);
     border-radius: $radius-sm;
-    
+
     &:hover {
       background: rgba($color-gold, 0.5);
     }
   }
-  
+
   scrollbar-width: thin;
   scrollbar-color: rgba($color-gold, 0.3) rgba($color-gray-800, 0.1);
 }
@@ -204,13 +204,18 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 @mixin hover-glow($color: $color-gold) {
   transition: $transition-normal;
-  
+
   &:hover {
     box-shadow: 0 0 20px $color;
   }
@@ -218,7 +223,7 @@
 
 @mixin hover-lift {
   transition: $transition-normal;
-  
+
   &:hover {
     transform: translateY(-4px);
   }
@@ -251,8 +256,12 @@
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 @mixin focus-ring($color: $color-gold) {
@@ -272,4 +281,40 @@
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-} 
+}
+
+@mixin heading-base {
+  font-weight: bold;
+  text-shadow: $shadow-text;
+  margin: 0;
+  line-height: 1.2;
+}
+
+@mixin heading-primary {
+  @include heading-base;
+  font-size: $font-size-2xl;
+  color: inherit;
+}
+
+@mixin heading-secondary {
+  @include heading-base;
+  font-size: 1.8rem;
+  color: $color-gold;
+}
+
+@mixin heading-tertiary {
+  @include heading-base;
+  font-size: $font-size-lg;
+  color: $color-night-gold;
+}
+
+@mixin heading-western-main {
+  @include heading-primary;
+  @include text-western;
+}
+
+@mixin heading-western-gold {
+  @include heading-secondary;
+  @include text-gold;
+  text-shadow: none;
+}
