@@ -19,11 +19,14 @@ async function request<T>(endpoint: string, method: string): Promise<T> {
         throw createAppError('server', 'Server error', statusCode);
       }
 
-      throw createAppError('unknown', `Request failed: ${statusCode}`, statusCode);
+      throw createAppError(
+        'unknown',
+        `Request failed: ${statusCode}`,
+        statusCode,
+      );
     }
 
     return response.json();
-
   } catch (error) {
     if (error && typeof error === 'object' && 'type' in error) {
       throw error;

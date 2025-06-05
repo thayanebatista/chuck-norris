@@ -1,13 +1,7 @@
 {
-  "extends": "./tsconfig.app.json",
-  "exclude": [],
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": true,
-    "lib": [],
-    "types": ["vitest/globals", "jsdom"]
+    "types": ["vitest/globals", "node", "jsdom"]
   },
-  "include": [
-    "tests/**/*",
-    "src/**/*"
-  ]
+  "include": ["tests", "src"]
 }

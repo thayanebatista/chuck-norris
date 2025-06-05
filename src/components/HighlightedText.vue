@@ -1,38 +1,45 @@
 <template>
   <span class="highlighted-text">
-    <template v-for="(part, index) in highlightedParts" :key="index">
-      <span v-if="part.match" class="highlight">{{ part.text }}</span>
+    <template
+      v-for="(part, index) in highlightedParts"
+      :key="index"
+    >
+      <span
+        v-if="part.match"
+        class="highlight"
+        >{{ part.text }}</span
+      >
       <span v-else>{{ part.text }}</span>
     </template>
   </span>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useTextHighlight } from '@/composables/useTextHighlight';
+  import { computed } from 'vue';
+  import { useTextHighlight } from '@/composables/useTextHighlight';
 
-interface Props {
-  text: string;
-  searchTerm: string;
-  highlightClass?: string;
-}
+  interface Props {
+    text: string;
+    searchTerm: string;
+    highlightClass?: string;
+  }
 
-const props = withDefaults(defineProps<Props>(), {
-  highlightClass: 'highlight',
-});
+  const props = withDefaults(defineProps<Props>(), {
+    highlightClass: 'highlight',
+  });
 
-const { highlightedParts } = useTextHighlight(
-  computed(() => props.text),
-  computed(() => props.searchTerm)
-);
+  const { highlightedParts } = useTextHighlight(
+    computed(() => props.text),
+    computed(() => props.searchTerm),
+  );
 </script>
 
 <style scoped lang="scss">
-.highlighted-text {
-  .highlight {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
+  .highlighted-text {
+    .highlight {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+    }
   }
-}
-</style> 
+</style>

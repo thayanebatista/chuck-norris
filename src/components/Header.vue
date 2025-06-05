@@ -7,36 +7,30 @@
   </header>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm;
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: $spacing-sm;
+    .header-content {
+      text-align: center;
 
-  .header-content {
-    text-align: center;
+      .main-title {
+        font-size: $font-size-2xl;
+        font-weight: bold;
+        text-shadow: $shadow-text;
+      }
 
-    .main-title {
-      font-size: $font-size-2xl;
-      font-weight: bold;
-      text-shadow: $shadow-text;
-    }
-
-    .subtitle {
-      font-size: $font-size-sm;
-      opacity: 0.8;
-      font-style: italic;
+      .subtitle {
+        font-size: $font-size-sm;
+        opacity: 0.8;
+        font-style: italic;
+      }
     }
   }
-}
-
-
-
 </style>

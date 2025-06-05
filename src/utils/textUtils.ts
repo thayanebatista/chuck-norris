@@ -1,10 +1,13 @@
-import type { TextPart } from "@/interfaces/utils/textUtils";
+import type { TextPart } from '@/interfaces/utils/textUtils';
 
 export function escapeRegExp(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-export function highlightTextParts(text: string, searchTerm: string): TextPart[] {
+export function highlightTextParts(
+  text: string,
+  searchTerm: string,
+): TextPart[] {
   if (!searchTerm) {
     return [{ text, match: false }];
   }
@@ -16,4 +19,4 @@ export function highlightTextParts(text: string, searchTerm: string): TextPart[]
     text: part,
     match: part.toLowerCase() === searchTerm.toLowerCase(),
   }));
-} 
+}

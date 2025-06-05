@@ -7,9 +7,9 @@ export interface AppError {
 export const createAppError = (
   type: AppError['type'],
   message: string,
-  statusCode?: number
+  statusCode?: number,
 ): AppError => ({
   type,
   message,
-  statusCode
+  statusCode,
 });
