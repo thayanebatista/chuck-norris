@@ -42,13 +42,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+          'vue-vendor': ['vue', 'pinia'],
           'ui-vendor': ['@mdi/js'],
         },
       },
     },
   },
   optimizeDeps: {
-    include: ['vue', 'vue-router', 'pinia', '@mdi/js'],
+    include: ['vue', 'pinia', '@mdi/js'],
   },
 });
