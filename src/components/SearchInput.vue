@@ -148,6 +148,18 @@
       position: relative;
       width: 100%;
 
+      @include tablet {
+        padding: 0 $spacing-lg;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      @include desktop {
+        padding: 0 $spacing-xl;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
       .input {
         @include input-base;
         transition: padding-right 0.2s ease;
@@ -175,12 +187,20 @@
         border: none;
         color: $color-gray-500;
         cursor: pointer;
-        padding: 4px;
+        padding: $spacing-xs;
         @include flex-center;
         z-index: 1;
 
         &:hover {
           color: $color-danger;
+        }
+
+        @include tablet {
+          padding: $spacing-lg;
+        }
+
+        @include desktop {
+          padding: $spacing-2xl;
         }
       }
 
@@ -198,6 +218,16 @@
         overflow-y: auto;
         margin-top: 2px;
         @include custom-scrollbar;
+
+        @include tablet {
+          left: $spacing-lg;
+          right: $spacing-lg;
+        }
+
+        @include desktop {
+          left: $spacing-xl;
+          right: $spacing-xl;
+        }
 
         .history-list {
           list-style: none;

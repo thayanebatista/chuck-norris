@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <Header />
+
     <div class="home-content">
       <SearchInput />
+
       <FeelingLuckyButton />
 
       <ErrorMessage

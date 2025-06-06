@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: $spacing-sm;
+    padding: $spacing-xl;
 
     .header-content {
       text-align: center;
@@ -28,6 +28,14 @@
         font-size: $font-size-sm;
         opacity: 0.8;
         font-style: italic;
+
+        @include desktop {
+          font-size: $font-size-md;
+        }
+
+        @include desktop {
+          font-size: $font-size-lg;
+        }
       }
     }
   }

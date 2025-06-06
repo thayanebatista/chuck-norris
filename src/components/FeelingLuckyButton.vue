@@ -34,6 +34,15 @@
 <style scoped lang="scss">
   .feeling-lucky-button {
     @include flex-center;
+    padding: 0 $spacing-md;
+
+    @include tablet {
+      padding: 0 $spacing-lg;
+    }
+
+    @include desktop {
+      padding: 0 $spacing-xl;
+    }
 
     .feeling-lucky-button-icon {
       width: 20px;
