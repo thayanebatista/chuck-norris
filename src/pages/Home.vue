@@ -17,6 +17,7 @@
           v-if="currentJoke"
           :joke="currentJoke"
           :search-term="''"
+          class="joke-single-card"
         />
         <div
           v-if="jokeResults.length > 0"
@@ -79,6 +80,12 @@
       @include flex-column;
       gap: $spacing-sm;
       padding: $spacing-sm;
+
+      .joke-single-card {
+        @include desktop {
+          margin: 0 auto;
+        }
+      }
 
       .jokes-list {
         @include flex-column-center;
