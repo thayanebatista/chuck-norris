@@ -21,8 +21,8 @@
   import { storeToRefs } from 'pinia';
   import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
-  import MdiIcon from './MdiIcon.vue';
-  import WesternButton from './WesternButton.vue';
+  import MdiIcon from '@/components/MdiIcon.vue';
+  import WesternButton from '@/components/WesternButton.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
   const { isLoading } = storeToRefs(chuckNorrisStore);

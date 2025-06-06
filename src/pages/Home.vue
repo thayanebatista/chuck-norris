@@ -36,6 +36,7 @@
         />
       </TransitionGroup>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -45,11 +46,12 @@
   import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
 
   import Header from '@/components/Header.vue';
+  import Footer from '@/components/Footer.vue';
   import JokeCard from '@/components/JokeCard.vue';
   import SearchInput from '@/components/SearchInput.vue';
-  import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
   import ErrorMessage from '@/components/ErrorMessage.vue';
   import NoResultsCard from '@/components/NoResultsCard.vue';
+  import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
   const {

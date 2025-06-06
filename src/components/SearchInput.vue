@@ -86,12 +86,12 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
-  import { useDebouncer } from '../utils/useDebouncer';
-  import { useChuckNorrisStore } from '../store/chuckNorrisStore';
-  import type { SearchHistoryItem } from '../interfaces/store/chuckNorrisStore';
+  import { useDebouncer } from '@/utils/useDebouncer';
+  import { useChuckNorrisStore } from '@/store/chuckNorrisStore';
+  import type { SearchHistoryItem } from '@/interfaces/store/chuckNorrisStore';
 
-  import MdiIcon from './MdiIcon.vue';
-  import WesternButton from './WesternButton.vue';
+  import MdiIcon from '@/components/MdiIcon.vue';
+  import WesternButton from '@/components/WesternButton.vue';
 
   const chuckStore = useChuckNorrisStore();
   const { searchHistory, hasSearchHistory, isLoading } =
