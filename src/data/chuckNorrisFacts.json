@@ -1,42 +1,77 @@
 [
   {
     "id": 1,
-    "value": "Chuck Norris is a member of the Republican Party and has donated over $32,000 to Republican candidates and organizations since 1988."
+    "value": "Chuck Norris is a member of the Republican Party and has donated over $32,000 to Republican candidates and organizations since 1988.",
+    "type": "political"
   },
   {
     "id": 2,
-    "value": "He is a supporter of the right to bear arms in the United States."
+    "value": "He is a supporter of the right to bear arms in the United States.",
+    "type": "political"
   },
   {
     "id": 3,
-    "value": "He opposes the celebration of the Day of Silence in public schools, an event that supports LGBT students and rights."
+    "value": "He opposes the celebration of the Day of Silence in public schools, an event that supports LGBT students and rights.",
+    "type": "political"
   },
   {
     "id": 4,
-    "value": "Since 2006, he has written columns for the conservative website WorldNetDaily, discussing topics such as faith, family, freedom, patriotism, and sometimes kickboxing."
+    "value": "Since 2006, he has written columns for the conservative website WorldNetDaily, discussing topics such as faith, family, freedom, patriotism, and sometimes kickboxing.",
+    "type": "political"
   },
   {
     "id": 5,
-    "value": "In 2007, he endorsed former Arkansas Governor Mike Huckabee for President of the United States."
+    "value": "In 2007, he endorsed former Arkansas Governor Mike Huckabee for President of the United States.",
+    "type": "political"
   },
   {
     "id": 6,
-    "value": "After Barack Obama was elected in 2008, Norris wrote a letter urging him to govern from the political center and learn from the mistakes of previous Democratic leaders."
+    "value": "After Barack Obama was elected in 2008, Norris wrote a letter urging him to govern from the political center and learn from the mistakes of previous Democratic leaders.",
+    "type": "political"
   },
   {
     "id": 7,
-    "value": "He was one of the first celebrities to publicly support California Proposition 8, which aimed to ban same-sex marriage."
+    "value": "He was one of the first celebrities to publicly support California Proposition 8, which aimed to ban same-sex marriage.",
+    "type": "political"
   },
   {
     "id": 8,
-    "value": "During the 2012 presidential election, he initially supported Ron Paul, then Newt Gingrich. After Gingrich dropped out, he backed Mitt Romney, despite previously criticizing Romney for changing positions and attempting to buy the nomination."
+    "value": "During the 2012 presidential election, he initially supported Ron Paul, then Newt Gingrich. After Gingrich dropped out, he backed Mitt Romney, despite previously criticizing Romney for changing positions and attempting to buy the nomination.",
+    "type": "political"
   },
   {
     "id": 9,
-    "value": "On the eve of the 2012 election, he and his wife Gina released a video warning that if evangelicals didn’t vote or voted for Obama, 'our country as we know it may be lost forever.'"
+    "value": "On the eve of the 2012 election, he and his wife Gina released a video warning that if evangelicals didn't vote or voted for Obama, 'our country as we know it may be lost forever.'",
+    "type": "political"
   },
   {
     "id": 10,
-    "value": "He produced the documentary 'Answering the Call', which highlights his 2007 trip to Iraq to visit American troops."
+    "value": "He produced the documentary 'Answering the Call', which highlights his 2007 trip to Iraq to visit American troops.",
+    "type": "political"
+  },
+  {
+    "id": 11,
+    "value": "Game: Chuck Norris Superkicks (1983) | Platforms: Atari 2600, ColecoVision, Commodore 64, VIC-20 | Description: An action game where players control Chuck Norris as he fights enemies and navigates terrain to rescue a hostage.",
+    "type": "game"
+  },
+  {
+    "id": 12,
+    "value": "Game: Chuck Norris: Bring on the Pain (2008) | Platforms: iPhone, J2ME, Brew, BlackBerry | Description: A humorous side-scrolling beat 'em up game based on Chuck Norris Facts, full of exaggerated action and comedy.",
+    "type": "game"
+  },
+  {
+    "id": 13,
+    "value": "Game: Nonstop Chuck Norris (2017) | Platforms: iOS, Android | Description: An idle action RPG where Chuck Norris defeats endless waves of enemies, collects gear, and levels up automatically while you're away.",
+    "type": "game"
+  },
+  {
+    "id": 14,
+    "value": "Game: Battle Storm (1991) | Platforms: Famicom (Japan only) | Description: A Japanese strategy war game that features parodied versions of Hollywood action heroes, including Chuck Norris, leading military forces.",
+    "type": "game"
+  },
+  {
+    "id": 15,
+    "value": "Game: Crime Boss: Rockay City (2023) | Platforms: PC, PlayStation 5, Xbox Series X/S | Description: A first-person shooter and crime empire simulator where Chuck Norris plays Sheriff Norris, part of a cast of 80s and 90s action icons.",
+    "type": "game"
   }
 ]

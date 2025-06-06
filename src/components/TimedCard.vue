@@ -8,14 +8,20 @@
     </div>
     <p class="fact-text">{{ currentFact.value }}</p>
     <footer class="card-footer">
-      <p class="source-text">Chuck Norris Facts</p>
+      <p class="source-text">
+        {{
+          currentFact.type === 'game'
+            ? 'Chuck Norris in Games'
+            : 'Chuck Norris Facts'
+        }}
+      </p>
       <a
-        href="https://pt.wikipedia.org/wiki/Chuck_Norris"
+        href="https://en.wikipedia.org/wiki/Chuck_Norris"
         target="_blank"
         rel="noopener noreferrer"
         class="source-link"
       >
-        Fonte: Wikipédia
+        From Wikipedia, the free encyclopedia
       </a>
     </footer>
   </div>
@@ -33,8 +39,12 @@
   let timer: number;
   let progressTimer: number;
 
+  const getRandomIndex = (): number => {
+    return Math.floor(Math.random() * facts.length);
+  };
+
   const updateFact = () => {
-    currentIndex.value = (currentIndex.value + 1) % facts.length;
+    currentIndex.value = getRandomIndex();
     currentFact.value = facts[currentIndex.value];
     progress.value = 100;
   };
@@ -94,7 +104,7 @@
       margin-top: $spacing-xs;
       border-top: 1px solid $color-gray-800;
       text-align: right;
-      font-size: $font-size-xs;
+      font-size: $font-size-2xs;
       font-style: italic;
 
       .source-link {
