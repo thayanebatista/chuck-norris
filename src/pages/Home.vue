@@ -10,8 +10,6 @@
       <ErrorMessage
         v-if="error"
         :message="error"
-        :show-retry="true"
-        @retry="handleRetry"
       />
 
       <TransitionGroup name="joke-list">
@@ -71,14 +69,6 @@
       !isLoading.value
     );
   });
-
-  const handleRetry = async () => {
-    if (currentJoke.value) {
-      await chuckNorrisStore.fetchRandomJoke();
-    } else if (lastSearchQuery.value) {
-      await chuckNorrisStore.searchJokes(lastSearchQuery.value);
-    }
-  };
 </script>
 
 <style scoped lang="scss">

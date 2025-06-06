@@ -54,6 +54,13 @@ export const useChuckNorrisStore = defineStore(
         return;
       }
 
+      if (trimmedQuery.length < 3 || trimmedQuery.length > 120) {
+        searchResults.value = [];
+        lastSearchQuery.value = '';
+        error.value = 'Search must be between 3 and 120 characters.';
+        return;
+      }
+
       try {
         isLoading.value = true;
         error.value = null;

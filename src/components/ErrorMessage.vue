@@ -10,48 +10,39 @@
       class="error-icon"
     />
     <p class="error-text">{{ message }}</p>
-    <WesternButton
-      v-if="showRetry"
-      type="button"
-      class="retry-button"
-      label="Try again"
-      :disabled="false"
-      aria-label="Try again"
-      @click="$emit('retry')"
-    >
-      <template #icon>
-        <MdiIcon
-          name="refresh"
-          aria-hidden="true"
-        />
-      </template>
-    </WesternButton>
   </div>
 </template>
 
 <script setup lang="ts">
   import MdiIcon from './MdiIcon.vue';
-  import WesternButton from './WesternButton.vue';
 
   defineProps<{
     message: string;
-    showRetry?: boolean;
   }>();
-
-  defineEmits<(e: 'retry') => void>();
 </script>
 
 <style scoped lang="scss">
   .error-message {
+    position: fixed;
+    bottom: $spacing-lg;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
     @include flex-column;
     align-items: center;
     gap: $spacing-sm;
-    padding: $spacing-md;
+    padding: $spacing-md $spacing-lg;
     background: rgba($color-danger, 0.1);
     border: 1px solid $color-danger;
     border-radius: $radius-md;
-    margin: $spacing-sm 0;
-    animation: fadeIn 0.3s ease-in-out;
+
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    animation: slideUp 0.3s ease-out;
+    max-width: 90vw;
+    min-width: 300px;
 
     .error-icon {
       color: $color-danger;
@@ -63,31 +54,18 @@
       color: $color-danger;
       text-align: center;
       font-size: $font-size-sm;
-    }
-
-    .retry-button {
-      padding: $spacing-xs $spacing-sm;
-      background: $color-danger;
-      color: $color-white;
-      border: none;
-      border-radius: $radius-sm;
-      cursor: pointer;
-      transition: $transition-normal;
-
-      &:hover {
-        background: darken($color-danger, 10%);
-      }
+      margin: 0;
     }
   }
 
-  @keyframes fadeIn {
+  @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(-10px);
+      transform: translate(-50%, 100%);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(-50%, 0);
     }
   }
 </style>
