@@ -20,7 +20,7 @@
           class="joke-single-card"
         />
         <div
-          v-if="jokeResults.length > 0"
+          v-else-if="jokeResults.length > 0"
           class="jokes-list"
         >
           <JokeCard
@@ -31,9 +31,10 @@
           />
         </div>
         <NoResultsCard
-          v-if="shouldShowNoResults"
+          v-else-if="shouldShowNoResults"
           class="no-results"
         />
+        <TimedCard v-else />
       </TransitionGroup>
     </div>
     <Footer />
@@ -48,6 +49,7 @@
   import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
   import JokeCard from '@/components/JokeCard.vue';
+  import TimedCard from '@/components/TimedCard.vue';
   import SearchInput from '@/components/SearchInput.vue';
   import ErrorMessage from '@/components/ErrorMessage.vue';
   import NoResultsCard from '@/components/NoResultsCard.vue';
