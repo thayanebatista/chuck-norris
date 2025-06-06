@@ -56,6 +56,25 @@
     @include card-night;
     @include flex-column;
     gap: $spacing-xs;
+    width: 100%;
+    height: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+
+    @include tablet {
+      padding: $spacing-md;
+      gap: $spacing-sm;
+      max-width: 700px;
+      font-size: $font-size-md;
+    }
+
+    @include desktop {
+      max-width: 800px;
+      gap: $spacing-md;
+      font-size: $font-size-lg;
+    }
 
     .joke-card-divider {
       height: 1px;
@@ -75,12 +94,30 @@
       letter-spacing: 0.5px;
       opacity: 0.9;
 
+      @include tablet {
+        gap: $spacing-sm;
+        font-size: $font-size-sm;
+      }
+
+      @include desktop {
+        gap: $spacing-md;
+        font-size: $font-size-md;
+      }
+
       .joke-card-categories-title {
         font-size: $font-size-xs;
         color: $color-starlight;
         font-weight: 400;
         letter-spacing: 0.5px;
         opacity: 0.7;
+
+        @include tablet {
+          font-size: $font-size-sm;
+        }
+
+        @include desktop {
+          font-size: $font-size-md;
+        }
       }
 
       .joke-card-categories-list {
@@ -113,6 +150,14 @@
         font-weight: 500;
         letter-spacing: 0.5px;
         opacity: 0.9;
+
+        @include tablet {
+          font-size: $font-size-sm;
+        }
+
+        @include desktop {
+          font-size: $font-size-md;
+        }
       }
 
       .joke-card-footer-link {
@@ -134,6 +179,16 @@
         box-shadow: $shadow-md;
         border: 2px solid $color-night-gold;
         transition: $transition-normal;
+
+        @include tablet {
+          width: 36px;
+          height: 36px;
+        }
+
+        @include desktop {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }

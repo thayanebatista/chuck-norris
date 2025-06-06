@@ -47,6 +47,7 @@
     border: 2px solid $color-night-gold;
     min-height: 400px;
     animation: fadeInUp 0.5s ease-out;
+    margin: 0 auto;
 
     .no-results-content {
       @include flex-column;
@@ -61,7 +62,6 @@
 
         .random-gif {
           max-width: 300px;
-          max-height: 300px;
           width: auto;
           height: auto;
           object-fit: cover;

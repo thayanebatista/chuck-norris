@@ -21,13 +21,15 @@
           :search-term="''"
           class="joke-card"
         />
-        <div v-if="jokeResults.length > 0">
+        <div
+          v-if="jokeResults.length > 0"
+          class="jokes-list"
+        >
           <JokeCard
             v-for="joke in jokeResults"
             :key="joke.id"
             :joke="joke"
             :search-term="lastSearchQuery"
-            class="joke-card"
           />
         </div>
         <NoResultsCard
@@ -88,6 +90,24 @@
       @include flex-column;
       gap: $spacing-sm;
       padding: $spacing-sm;
+
+      .joke-card {
+        margin: 0 auto;
+      }
+
+      .jokes-list {
+        @include flex-column-center;
+        width: 100%;
+        gap: $spacing-sm;
+
+        @include desktop {
+          display: block;
+          columns: 2;
+          column-gap: $spacing-lg;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+      }
     }
   }
 
