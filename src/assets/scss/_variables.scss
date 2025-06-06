@@ -25,14 +25,12 @@ $color-starlight: #f4f1e8;
 $color-shadow-deep: #0f0c08;
 $color-cactus: #6b8e23;
 $color-danger: #8b0000;
-
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 1.5rem;
 $spacing-lg: 2rem;
 $spacing-xl: 2.5rem;
 $spacing-2xl: 3rem;
-
 $font-size-2xs: 0.625rem;
 $font-size-xs: 0.875rem;
 $font-size-sm: 1rem;
@@ -42,23 +40,19 @@ $font-size-xl: 1.5rem;
 $font-size-2xl: 2rem;
 $font-size-3xl: 2.5rem;
 $font-size-4xl: 3rem;
-
 $radius-sm: 0.25rem;
 $radius-md: 0.5rem;
 $radius-lg: 1rem;
 $radius-xl: 1.5rem;
 $radius-full: 9999px;
-
-$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-$shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%);
+$shadow-text: 2px 2px 4px rgb(0 0 0 / 30%);
 $transition-fast: 0.15s ease-in-out;
 $transition-normal: 0.3s ease-in-out;
 $transition-slow: 0.5s ease-in-out;
-
 $gradient-primary: linear-gradient(180deg, $color-gray-300 0%, $color-gray-400 100%);
 $gradient-sunset: linear-gradient(180deg, $color-sunset 0%, $color-rust 100%);
 $gradient-desert: linear-gradient(180deg, $color-desert 0%, $color-dust 100%);
@@ -66,13 +60,11 @@ $gradient-gold: linear-gradient(180deg, $color-gold 0%, $color-old-gold 100%);
 $gradient-night: linear-gradient(180deg, $color-night-sky 0%, $color-gray-900 100%);
 $gradient-campfire: linear-gradient(180deg, $color-campfire 0%, $color-rust 100%);
 $gradient-gold-night: linear-gradient(90deg, transparent 0%, $color-night-gold 10%, $color-gold 50%, $color-night-gold 90%, transparent 100%);
-
 $bp-mobile-sm: 375px;
 $bp-mobile-lg: 480px;
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
 $bp-desktop-lg: 1440px;
-
 $z-dropdown: 1000;
 $z-toast: 1080;
 $z-full: 9999;

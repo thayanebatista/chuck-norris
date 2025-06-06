@@ -142,6 +142,7 @@
 <style scoped lang="scss">
   .search-input {
     @include flex-column-center;
+
     padding: 0 $spacing-md;
 
     .input-container {
@@ -149,19 +150,20 @@
       width: 100%;
 
       @include tablet {
-        padding: 0 $spacing-lg;
         max-width: 700px;
         margin: 0 auto;
+        padding: 0 $spacing-lg;
       }
 
       @include desktop {
-        padding: 0 $spacing-xl;
         max-width: 1000px;
         margin: 0 auto;
+        padding: 0 $spacing-xl;
       }
 
       .input {
         @include input-base;
+
         transition: padding-right 0.2s ease;
 
         &.has-text {
@@ -180,16 +182,17 @@
 
       .clear-button {
         position: absolute;
-        right: $spacing-xs;
         top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
+        right: $spacing-xs;
+        z-index: 1;
+        padding: $spacing-xs;
         border: none;
         color: $color-gray-500;
+        background: transparent;
+        transform: translateY(-50%);
         cursor: pointer;
-        padding: $spacing-xs;
+
         @include flex-center;
-        z-index: 1;
 
         &:hover {
           color: $color-danger;
@@ -205,42 +208,44 @@
       }
 
       .history-dropdown {
+        overflow-y: auto;
         position: absolute;
         top: 100%;
-        left: 0;
         right: 0;
-        background: $color-night-sky;
-        border: 1px solid $color-moonlight;
-        border-radius: $radius-md;
-        box-shadow: $shadow-xl;
+        left: 0;
         z-index: $z-dropdown;
         max-height: 300px;
-        overflow-y: auto;
         margin-top: 2px;
+        border: 1px solid $color-moonlight;
+        border-radius: $radius-md;
+        background: $color-night-sky;
+        box-shadow: $shadow-xl;
+
         @include custom-scrollbar;
 
         @include tablet {
-          left: $spacing-lg;
           right: $spacing-lg;
+          left: $spacing-lg;
         }
 
         @include desktop {
-          left: $spacing-xl;
           right: $spacing-xl;
+          left: $spacing-xl;
         }
 
         .history-list {
-          list-style: none;
           margin: 0;
           padding: 0;
+          list-style: none;
         }
 
         .history-item {
           @include flex-between;
+
           padding: $spacing-sm $spacing-md;
-          cursor: pointer;
           border-bottom: 1px solid rgba($color-moonlight, 0.1);
           transition: $transition-fast;
+          cursor: pointer;
 
           &:hover {
             background-color: rgba($color-moonlight, 0.05);
@@ -252,25 +257,25 @@
 
           .history-icon {
             margin-right: $spacing-sm;
-            color: $color-gray-500;
             font-size: $font-size-sm;
+            color: $color-gray-500;
           }
 
           .history-query {
             flex: 1;
-            color: $color-moonlight;
             font-size: $font-size-sm;
+            color: $color-moonlight;
           }
 
           .history-remove {
-            opacity: 0;
-            transition: $transition-fast;
+            padding: $spacing-xs;
+            border: none;
+            border-radius: $radius-sm;
             color: $color-gray-400;
             background: none;
-            border: none;
+            opacity: 0;
+            transition: $transition-fast;
             cursor: pointer;
-            padding: $spacing-xs;
-            border-radius: $radius-sm;
 
             &:hover {
               color: $color-danger;
@@ -284,23 +289,23 @@
         }
 
         .clear-history-section {
-          border-top: 1px solid rgba($color-moonlight, 0.2);
           padding: $spacing-xs;
+          border-top: 1px solid rgba($color-moonlight, 0.2);
 
           .clear-history-button {
             width: 100%;
             padding: $spacing-xs;
-            background: transparent;
-            color: $color-gray-600;
             border: none;
             font-size: $font-size-xs;
-            cursor: pointer;
+            color: $color-gray-600;
+            background: transparent;
             transition: $transition-fast;
-
-            &:hover {
-              color: $color-danger;
-            }
+            cursor: pointer;
           }
+        }
+
+        .clear-history-button:hover {
+          color: $color-danger;
         }
       }
     }

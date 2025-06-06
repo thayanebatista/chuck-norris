@@ -28,15 +28,15 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: $z-full;
     width: 100vw;
     height: 100vh;
     background-color: rgba($color-black, 0.8);
-    backdrop-filter: blur(4px);
-    z-index: $z-full;
-    @include flex-center;
-
-    pointer-events: all;
     user-select: none;
+    pointer-events: all;
+    backdrop-filter: blur(4px);
+
+    @include flex-center;
 
     .loading-content {
       @include flex-column;
@@ -46,8 +46,8 @@
         height: 60px;
         border: 4px solid $color-night-gold;
         border-radius: $radius-full;
-        border-top-color: transparent;
         animation: spin 1.2s linear infinite;
+        border-top-color: transparent;
       }
     }
   }

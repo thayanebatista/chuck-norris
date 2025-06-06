@@ -34,6 +34,7 @@
 <style scoped lang="scss">
   .feeling-lucky-button {
     @include flex-center;
+
     padding: 0 $spacing-md;
 
     @include tablet {

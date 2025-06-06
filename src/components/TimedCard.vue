@@ -65,21 +65,22 @@
 <style scoped lang="scss">
   .timed-card {
     @include card-night;
+
     position: relative;
-    padding: $spacing-xs;
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    width: 100%;
+    padding: $spacing-xs;
 
     .progress-bar {
+      overflow: hidden;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 3px;
-      background: $color-gray-800;
       border-radius: $radius-sm;
-      overflow: hidden;
+      background: $color-gray-800;
 
       &-fill {
         height: 100%;
@@ -90,26 +91,28 @@
 
     .fact-text {
       @include text-western;
-      font-size: $font-size-xs;
-      color: $color-moonlight;
+
       margin: 0;
       padding-top: $spacing-xs;
+      font-size: $font-size-xs;
       line-height: 1.4;
+      color: $color-moonlight;
     }
 
     .card-footer {
       @include flex-row;
-      justify-content: space-between;
-      align-items: center;
+
       margin-top: $spacing-xs;
       border-top: 1px solid $color-gray-800;
-      text-align: right;
+      align-items: center;
+      justify-content: space-between;
       font-size: $font-size-2xs;
       font-style: italic;
+      text-align: right;
 
       .source-link {
-        color: $color-moonlight;
         text-decoration: none;
+        color: $color-moonlight;
         transition: $transition-normal;
 
         &:hover {

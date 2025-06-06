@@ -55,60 +55,61 @@
   .joke-card {
     @include card-night;
     @include flex-column;
-    gap: $spacing-xs;
+
     width: 100%;
     height: 100%;
-    break-inside: avoid;
-    page-break-inside: avoid;
     margin-bottom: $spacing-sm;
     font-size: $font-size-sm;
+    break-inside: avoid;
+    gap: $spacing-xs;
+    page-break-inside: avoid;
 
     @include tablet {
-      padding: $spacing-md;
-      gap: $spacing-sm;
       max-width: 700px;
+      padding: $spacing-md;
       font-size: $font-size-md;
+      gap: $spacing-sm;
     }
 
     @include desktop {
       max-width: 800px;
-      gap: $spacing-md;
       font-size: $font-size-lg;
+      gap: $spacing-md;
     }
 
     .joke-card-divider {
       height: 1px;
-      background: $gradient-gold-night;
-      opacity: 0.6;
       margin: $spacing-sm 0;
       border-radius: $radius-full;
+      background: $gradient-gold-night;
+      opacity: 0.6;
     }
 
     .joke-card-categories {
       display: flex;
       align-items: center;
-      gap: $spacing-xs;
       font-size: $font-size-xs;
-      color: $color-night-gold;
       font-weight: 500;
       letter-spacing: 0.5px;
+      color: $color-night-gold;
       opacity: 0.9;
+      gap: $spacing-xs;
 
       @include tablet {
-        gap: $spacing-sm;
         font-size: $font-size-sm;
+        gap: $spacing-sm;
       }
 
       @include desktop {
-        gap: $spacing-md;
         font-size: $font-size-md;
+        gap: $spacing-md;
       }
 
       .joke-card-categories-title {
         font-size: $font-size-xs;
-        color: $color-starlight;
         font-weight: 400;
         letter-spacing: 0.5px;
+        color: $color-starlight;
         opacity: 0.7;
 
         @include tablet {
@@ -126,12 +127,12 @@
         gap: $spacing-xs;
 
         .joke-card-category {
-          cursor: pointer;
-          background: $color-black;
           padding: $spacing-xs $spacing-sm;
           border-radius: $radius-md;
+          background: $color-black;
           box-shadow: $shadow-md;
           transition: $transition-normal;
+          cursor: pointer;
 
           &:hover {
             background: $color-gray-800;
@@ -142,13 +143,14 @@
 
     .joke-card-footer {
       @include flex-between;
+
       align-items: center;
 
       .joke-card-footer-date {
         font-size: $font-size-xs;
-        color: $color-night-gold;
         font-weight: 500;
         letter-spacing: 0.5px;
+        color: $color-night-gold;
         opacity: 0.9;
 
         @include tablet {
@@ -162,22 +164,23 @@
 
       .joke-card-footer-link {
         @include flex-center;
-        transition: $transition-normal;
+
         border-radius: $radius-md;
+        transition: $transition-normal;
 
         &:hover {
-          transform: scale(1.1);
           background: rgba($color-gold, 0.1);
           box-shadow: $shadow-md;
+          transform: scale(1.1);
         }
       }
 
       .joke-card-footer-icon {
         width: 32px;
         height: 32px;
+        border: 2px solid $color-night-gold;
         border-radius: $radius-md;
         box-shadow: $shadow-md;
-        border: 2px solid $color-night-gold;
         transition: $transition-normal;
 
         @include tablet {

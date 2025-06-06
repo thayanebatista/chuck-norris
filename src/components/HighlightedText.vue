@@ -37,9 +37,9 @@
 <style scoped lang="scss">
   .highlighted-text {
     .highlight {
-      background-color: yellow;
-      color: black;
       font-weight: bold;
+      color: black;
+      background-color: yellow;
     }
   }
 </style>

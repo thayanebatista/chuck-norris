@@ -31,12 +31,13 @@
   .footer {
     margin-top: auto;
     padding: $spacing-xs $spacing-sm;
-    background-color: $color-night-sky;
     border-top: 1px solid $color-gray-900;
+    background-color: $color-night-sky;
 
     .footer-content {
       @include flex-column;
       @include flex-center;
+
       max-width: 100%;
 
       @include mobile {
@@ -47,21 +48,23 @@
 
     .footer-info {
       @include flex-row;
+
       gap: $spacing-xs;
 
       p {
-        color: $color-white;
-        font-size: $font-size-xs;
         margin: $spacing-xs 0;
+        font-size: $font-size-xs;
+        color: $color-white;
       }
 
       .github-link {
         @include flex-row-center;
-        gap: $spacing-xs;
-        color: $color-primary;
-        text-decoration: none;
+
         font-size: $font-size-xs;
+        text-decoration: none;
+        color: $color-primary;
         transition: color $transition-fast;
+        gap: $spacing-xs;
 
         &:hover {
           color: $color-primary-dark;

@@ -1,9 +1,3 @@
-node_modules
-dist
-coverage
-.vitest
-*.local
-
 coverage/
 dist/
 public/

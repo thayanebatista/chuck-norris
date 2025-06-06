@@ -78,12 +78,14 @@
 <style scoped lang="scss">
   .home {
     @include flex-column;
+
     min-height: 100vh;
 
     .home-content {
       @include flex-column;
-      gap: $spacing-sm;
+
       padding: $spacing-sm;
+      gap: $spacing-sm;
 
       .joke-single-card {
         @include desktop {
@@ -93,15 +95,16 @@
 
       .jokes-list {
         @include flex-column-center;
+
         width: 100%;
         gap: $spacing-sm;
 
         @include desktop {
           display: block;
-          columns: 2;
-          column-gap: $spacing-lg;
           max-width: 1000px;
           margin: 0 auto;
+          column-gap: $spacing-lg;
+          columns: 2;
         }
       }
     }

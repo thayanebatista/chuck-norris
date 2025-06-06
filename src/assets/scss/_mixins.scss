@@ -51,21 +51,22 @@
 
 @mixin flex-column-center {
   @include flex-column;
+
   align-items: center;
   justify-content: center;
 }
 
 @mixin btn-base {
   display: inline-flex;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $radius-md;
   align-items: center;
   justify-content: center;
-  padding: $spacing-sm $spacing-md;
-  border-radius: $radius-md;
   font-weight: 600;
   text-decoration: none;
   transition: $transition-normal;
   cursor: pointer;
-  border: none;
 
   &:disabled {
     opacity: 0.6;
@@ -75,25 +76,27 @@
 
 @mixin btn-western {
   @include btn-base;
-  background: $gradient-desert;
+
   border: 2px solid $color-leather;
-  color: $color-black;
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-black;
+  background: $gradient-desert;
   box-shadow: $shadow-md;
 
   &:hover:not(:disabled) {
     background: $gradient-gold;
-    transform: translateY(-2px);
     box-shadow: $shadow-lg;
+    transform: translateY(-2px);
   }
 }
 
 @mixin btn-danger {
   @include btn-base;
-  background: $color-danger;
-  color: $color-white;
+
   border: 2px solid $color-rust;
+  color: $color-white;
+  background: $color-danger;
 
   &:hover:not(:disabled) {
     background: $color-rust;
@@ -102,40 +105,40 @@
 }
 
 @mixin card-western {
-  background: $gradient-desert;
+  overflow: hidden;
+  position: relative;
+  padding: $spacing-md;
   border: 2px solid $color-leather;
   border-radius: $radius-lg;
-  padding: $spacing-md;
-  box-shadow: $shadow-lg;
-  position: relative;
-  overflow: hidden;
   text-align: center;
+  background: $gradient-desert;
+  box-shadow: $shadow-lg;
 }
 
 @mixin card-night {
   @include card-western;
-  background: $gradient-night;
+
   border-color: $color-night-gold;
   color: $color-moonlight;
+  background: $gradient-night;
 }
 
 @mixin text-western {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
   text-shadow: $shadow-text;
-  font-weight: bold;
 }
 
 @mixin text-gold {
-  background: $gradient-gold;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   text-shadow: none;
+  background: $gradient-gold;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @mixin text-campfire {
-  color: $color-campfire;
   text-shadow: 0 0 10px $color-campfire;
+  color: $color-campfire;
 }
 
 @mixin truncate {
@@ -146,25 +149,25 @@
 
 @mixin line-clamp($lines: 2) {
   display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
 }
 
 @mixin input-base {
   width: 100%;
   padding: $spacing-xs $spacing-sm;
-  border-radius: $radius-md;
   border: 2px solid $color-moonlight;
-  background: $color-white;
-  color: $color-black;
+  border-radius: $radius-md;
   font-size: $font-size-sm;
+  color: $color-black;
+  background: $color-white;
   transition: $transition-normal;
 
   &:focus {
-    outline: none;
     border-color: $color-gold;
+    outline: none;
     box-shadow: 0 0 0 3px rgba($color-gold, 0.2);
   }
 
@@ -180,21 +183,21 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba($color-gray-800, 0.1);
     border-radius: $radius-sm;
+    background: rgba($color-gray-800, 0.1);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba($color-gold, 0.3);
     border-radius: $radius-sm;
+    background: rgba($color-gold, 0.3);
 
     &:hover {
       background: rgba($color-gold, 0.5);
     }
   }
 
-  scrollbar-width: thin;
   scrollbar-color: rgba($color-gold, 0.3) rgba($color-gray-800, 0.1);
+  scrollbar-width: thin;
 }
 
 @mixin pulse {
@@ -206,6 +209,7 @@
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -236,10 +240,7 @@
 
 @mixin absolute-full {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
 }
 
 @mixin skeleton {
@@ -257,6 +258,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -270,38 +272,41 @@
 }
 
 @mixin visually-hidden {
+  overflow: hidden !important;
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
-  padding: 0 !important;
   margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
+  padding: 0 !important;
   border: 0 !important;
+  white-space: nowrap !important;
+  clip: rect(0, 0, 0, 0) !important;
 }
 
 @mixin heading-base {
-  font-weight: bold;
-  text-shadow: $shadow-text;
   margin: 0;
+  font-weight: 700;
   line-height: 1.2;
+  text-shadow: $shadow-text;
 }
 
 @mixin heading-primary {
   @include heading-base;
+
   font-size: $font-size-2xl;
   color: inherit;
 }
 
 @mixin heading-secondary {
   @include heading-base;
+
   font-size: 1.8rem;
   color: $color-gold;
 }
 
 @mixin heading-tertiary {
   @include heading-base;
+
   font-size: $font-size-lg;
   color: $color-night-gold;
 }
@@ -314,5 +319,6 @@
 @mixin heading-western-gold {
   @include heading-secondary;
   @include text-gold;
+
   text-shadow: none;
 }

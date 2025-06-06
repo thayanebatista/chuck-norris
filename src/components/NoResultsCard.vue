@@ -42,35 +42,39 @@
 <style scoped lang="scss">
   .no-results-card {
     @include flex-center;
-    padding: $spacing-lg;
-    border-radius: $radius-lg;
-    border: 2px solid $color-night-gold;
+
     min-height: 400px;
-    animation: fadeInUp 0.5s ease-out;
     margin: 0 auto;
+    padding: $spacing-lg;
+    border: 2px solid $color-night-gold;
+    border-radius: $radius-lg;
+    animation: fadeInUp 0.5s ease-out;
 
     .no-results-content {
       @include flex-column;
       @include flex-center;
-      text-align: center;
+
       max-width: 500px;
+      text-align: center;
 
       .gif-container {
         @include flex-center;
-        border-radius: $radius-md;
+
         overflow: hidden;
+        border-radius: $radius-md;
 
         .random-gif {
-          max-width: 300px;
           width: auto;
+          max-width: 300px;
           height: auto;
-          object-fit: cover;
           border-radius: $radius-md;
+          object-fit: cover;
         }
       }
 
       .message-container {
         @include flex-column;
+
         gap: $spacing-sm;
 
         h2 {
@@ -92,6 +96,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
