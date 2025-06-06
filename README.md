@@ -1,36 +1,34 @@
 # Chuck Norris Jokes Search
 
-Uma aplicação web moderna para buscar e exibir piadas do Chuck Norris, desenvolvida com Vue 3, TypeScript e Vite.
+A modern web application for searching and displaying Chuck Norris jokes, developed with Vue 3, TypeScript, and Vite.
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-- **Vue 3**: Framework JavaScript progressivo para construção de interfaces de usuário.
-- **Pinia**: Gerenciamento de estado simples e intuitivo.
-- **TypeScript**: Tipagem estática para maior segurança e escalabilidade.
-- **Vite**: Build tool moderna e ultrarrápida.
-- **SCSS**: Pré-processador CSS para estilos mais poderosos e organizados.
-- **Vitest**: Framework de testes unitários rápido e moderno.
-- **Vue Test Utils**: Biblioteca de utilitários para testes de componentes Vue.
+- **Vue 3**: Progressive JavaScript framework for building user interfaces.
+- **Pinia**: Simple and intuitive state management.
+- **TypeScript**: Static typing for increased security and scalability.
+- **Vite**: Modern and ultra-fast build tool.
+- **SCSS**: CSS preprocessor for more powerful and organized styles.
+- **Vitest**: Fast and modern unit testing framework.
+- **Vue Test Utils**: Utility library for Vue component testing.
 
-## 🚀 Funcionalidades Principais
+## 🚀 Main Features
 
-- **Busca de Piadas**:
-  - Realiza busca de piadas na API do Chuck Norris.
-  - Exibe os resultados em cards.
-- **Feature "I'm Feeling Lucky"**:
-  - Busca e exibe uma piada aleatória ao clicar no botão.
-- **Destaque de Termos**:
-  - O termo pesquisado é destacado nos resultados da busca.
-- **Design Responsivo**:
-  - Interface adaptável para diferentes tamanhos de tela.
-- **PWA (Progressive Web App)**:
-  - Permite a instalação da aplicação no dispositivo e funcionamento offline.
-- **Acessibilidade**:
-  - Suporte a leitores de tela, navegação por teclado e outras diretrizes da WCAG.
+- **Joke Search**:
+  - Searches for jokes in the Chuck Norris API.
+  - Displays results in cards.
+- **"I'm Feeling Lucky" Feature**:
+  - Searches and displays a random joke when clicking the button.
+- **Term Highlighting**:
+  - The searched term is highlighted in the search results.
+- **Responsive Design**:
+  - Interface adaptable to different screen sizes.
+- **Accessibility**:
+  - Support for screen readers, keyboard navigation, and other WCAG (Web Content Accessibility Guidelines) guidelines.
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
-A estrutura principal do projeto está organizada da seguinte forma:
+The main project structure is organized as follows:
 
 ```
 chuck-norris/
@@ -64,46 +62,46 @@ chuck-norris/
 └── vite.config.ts
 ```
 
-### Principais Componentes
+### Main Components
 
-- **`Header.vue`**: Barra de navegação localizada no topo da aplicação.
-- **`SearchInput.vue`**: Componente de busca para pesquisar piadas.
-- **`FeelingLuckyButton.vue`**: Botão para buscar uma piada aleatória.
-- **`JokeCard.vue`**: Card para exibir uma piada do Chuck Norris.
-- **`NoResultsCard.vue`**: Componente exibido quando a busca não retorna resultados.
-- **`ErrorMessage.vue`**: Componente para exibir mensagens de erro de forma clara.
-- **`LoadingSpinner.vue`**: Indicador de carregamento para feedback visual durante requisições.
-- **`WesternButton.vue`**: Botão estilizado reutilizável.
-- **`HighlightedText.vue`**: Componente que destaca um texto específico, usado para o termo de busca.
-- **`MdiIcon.vue`**: Componente para renderizar ícones.
+- **`Header.vue`**: Navigation bar located at the top of the application.
+- **`SearchInput.vue`**: Search component for looking up jokes.
+- **`FeelingLuckyButton.vue`**: Button to search for a random joke.
+- **`JokeCard.vue`**: Card to display a Chuck Norris joke.
+- **`NoResultsCard.vue`**: Component displayed when the search returns no results.
+- **`ErrorMessage.vue`**: Component to display error messages clearly.
+- **`LoadingSpinner.vue`**: Loading indicator for visual feedback during requests.
+- **`WesternButton.vue`**: Reusable styled button.
+- **`HighlightedText.vue`**: Component that highlights specific text, used for the search term.
+- **`MdiIcon.vue`**: Component for rendering icons.
 
-### Gerenciamento de Estado
+### State Management
 
-- **Pinia**: O store `chuckNorrisStore` gerencia o estado da aplicação, incluindo a lista de piadas, o termo de busca, estados de carregamento e erros.
+- **Pinia**: The `chuckNorrisStore` manages the application state, including the joke list, search term, loading states, and errors.
 
-## 📦 Instalação e Configuração
+## 📦 Installation and Configuration
 
-1. Clone o repositório:
+1. Clone the repository:
 
    ```bash
-   git clone [URL_DO_REPOSITÓRIO]
+   git clone [REPOSITORY_URL]
    ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Configure o arquivo `.env`:
+3. Configure the `.env` file:
    ```bash
    cp .env.example .env
    ```
-   _Observação: O arquivo `.env.example` pode não existir. Se for o caso, você pode pular esta etapa._
+   _Note: The `.env.example` file may not exist. If that's the case, you can skip this step._
 
-## 🚀 Executando o Projeto
+## 🚀 Running the Project
 
-### Desenvolvimento
+### Development
 
 ```bash
 npm run dev
@@ -115,30 +113,30 @@ npm run dev
 npm run build
 ```
 
-## 🧪 Testes
+## 🧪 Testing
 
-O projeto utiliza **Vitest** e **Vue Test Utils** para testes unitários e de componentes.
+The project uses **Vitest** and **Vue Test Utils** for unit and component testing.
 
-Para executar os testes:
+To run the tests:
 
 ```bash
 npm run test
 ```
 
-Para verificar a cobertura de testes:
+To check test coverage:
 
 ```bash
 npm run test:coverage
 ```
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`).
-3. Commit suas mudanças (`git commit -m '[TAG]: message'`).
-4. Push para a branch (`git push origin feature/AmazingFeature`).
-5. Abra um Pull Request.
+1. Fork the project.
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m '[TAG]: message'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-## 📝 Licença
+## 📝 License
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+This project is under the MIT license. See the `LICENSE` file for more details.
