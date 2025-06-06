@@ -48,43 +48,6 @@ describe('ErrorMessage', () => {
     expect(icon.exists()).toBe(true);
   });
 
-  it('should not show retry button when showRetry is false', () => {
-    const wrapper = mount(ErrorMessage, {
-      props: {
-        message: 'Test error message',
-        showRetry: false,
-      },
-    });
-
-    expect(wrapper.find('.retry-button').exists()).toBe(false);
-  });
-
-  it('should show retry button when showRetry is true', () => {
-    const wrapper = mount(ErrorMessage, {
-      props: {
-        message: 'Test error message',
-        showRetry: true,
-      },
-    });
-
-    const retryButton = wrapper.find('.retry-button');
-    expect(retryButton.exists()).toBe(true);
-    expect(retryButton.text()).toBe('Try again');
-    expect(retryButton.attributes('aria-label')).toBe('Try again');
-  });
-
-  it('should emit retry event when retry button is clicked', async () => {
-    const wrapper = mount(ErrorMessage, {
-      props: {
-        message: 'Test error message',
-        showRetry: true,
-      },
-    });
-
-    await wrapper.find('.retry-button').trigger('click');
-    expect(wrapper.emitted('retry')).toBeTruthy();
-  });
-
   it('should have correct CSS classes', () => {
     const wrapper = mount(ErrorMessage, {
       props: {

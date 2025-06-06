@@ -27,7 +27,7 @@
     bottom: $spacing-lg;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: $z-toast;
 
     @include flex-column;
     align-items: center;
@@ -38,7 +38,7 @@
     border-radius: $radius-md;
 
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: $shadow-md;
 
     animation: slideUp 0.3s ease-out;
     max-width: 90vw;

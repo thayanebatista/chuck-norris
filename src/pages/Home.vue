@@ -17,7 +17,6 @@
           v-if="currentJoke"
           :joke="currentJoke"
           :search-term="''"
-          class="joke-card"
         />
         <div
           v-if="jokeResults.length > 0"
@@ -81,10 +80,6 @@
       gap: $spacing-sm;
       padding: $spacing-sm;
 
-      .joke-card {
-        margin: 0 auto;
-      }
-
       .jokes-list {
         @include flex-column-center;
         width: 100%;
@@ -103,7 +98,7 @@
 
   .joke-list-enter-active,
   .joke-list-leave-active {
-    transition: all 0.4s ease-in-out;
+    transition: $transition-slow;
   }
 
   .joke-list-enter-from,
@@ -113,6 +108,6 @@
   }
 
   .joke-list-move {
-    transition: transform 0.4s ease-in-out;
+    transition: $transition-slow;
   }
 </style>

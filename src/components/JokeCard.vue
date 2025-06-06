@@ -168,7 +168,7 @@
         &:hover {
           transform: scale(1.1);
           background: rgba($color-gold, 0.1);
-          box-shadow: 0 0 15px rgba($color-gold, 0.3);
+          box-shadow: $shadow-md;
         }
       }
 

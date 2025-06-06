@@ -253,7 +253,7 @@
           .history-icon {
             margin-right: $spacing-sm;
             color: $color-gray-500;
-            font-size: 16px;
+            font-size: $font-size-sm;
           }
 
           .history-query {
@@ -269,7 +269,7 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 4px;
+            padding: $spacing-xs;
             border-radius: $radius-sm;
 
             &:hover {

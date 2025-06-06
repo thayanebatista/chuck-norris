@@ -32,7 +32,7 @@
     height: 100vh;
     background-color: rgba($color-black, 0.8);
     backdrop-filter: blur(4px);
-    z-index: 9999;
+    z-index: $z-full;
     @include flex-center;
 
     pointer-events: all;
