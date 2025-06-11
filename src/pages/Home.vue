@@ -34,7 +34,7 @@
           v-else-if="shouldShowNoResults"
           class="no-results"
         />
-        <TimedCard v-else />
+        <TimedCard v-else-if="!isLoading" />
       </TransitionGroup>
     </div>
     <Footer />
