@@ -16,11 +16,9 @@
 </template>
 
 <script setup lang="ts">
-  interface Props {
+  defineProps<{
     visible: boolean;
-  }
-
-  defineProps<Props>();
+  }>();
 </script>
 
 <style scoped lang="scss">

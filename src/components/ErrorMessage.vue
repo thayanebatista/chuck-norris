@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import MdiIcon from './MdiIcon.vue';
+  import MdiIcon from '@/components/MdiIcon.vue';
 
   defineProps<{
     message: string;

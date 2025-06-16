@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { getErrorMessage } from '../utils/errorHandler';
-import { chuckNorrisService } from '../api/chuckNorris.service';
+import { getErrorMessage } from '@/utils/errorHandler';
+import { chuckNorrisService } from '@/api/chuckNorris.service';
 
 import type {
   ChuckNorrisJoke,

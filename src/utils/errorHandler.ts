@@ -1,4 +1,4 @@
-import type { AppError } from '../interfaces/errors';
+import type { AppError } from '@/interfaces/errors';
 
 export const getErrorMessage = (error: unknown): string => {
   if (error && typeof error === 'object' && 'type' in error) {

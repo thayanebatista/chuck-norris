@@ -20,13 +20,13 @@
           class="joke-single-card"
         />
         <div
-          v-else-if="jokeResults.length > 0"
+          v-else-if="searchResults.length > 0"
           class="jokes-list"
         >
           <JokeCard
-            v-for="joke in jokeResults"
-            :key="joke.id"
-            :joke="joke"
+            v-for="result in searchResults"
+            :key="result.id"
+            :joke="result"
             :search-term="lastSearchQuery"
           />
         </div>
@@ -56,18 +56,13 @@
   import FeelingLuckyButton from '@/components/FeelingLuckyButton.vue';
 
   const chuckNorrisStore = useChuckNorrisStore();
-  const {
-    searchResults: jokeResults,
-    currentJoke,
-    error,
-    isLoading,
-    lastSearchQuery,
-  } = storeToRefs(chuckNorrisStore);
+  const { searchResults, currentJoke, error, isLoading, lastSearchQuery } =
+    storeToRefs(chuckNorrisStore);
 
   const shouldShowNoResults = computed(() => {
     return (
       lastSearchQuery.value.trim() !== '' &&
-      jokeResults.value.length === 0 &&
+      searchResults.value.length === 0 &&
       !currentJoke.value &&
       !error.value &&
       !isLoading.value

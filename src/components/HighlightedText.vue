@@ -18,15 +18,16 @@
   import { computed } from 'vue';
   import { useTextHighlight } from '@/composables/useTextHighlight';
 
-  interface Props {
-    text: string;
-    searchTerm: string;
-    highlightClass?: string;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
-    highlightClass: 'highlight',
-  });
+  const props = withDefaults(
+    defineProps<{
+      text: string;
+      searchTerm: string;
+      highlightClass?: string;
+    }>(),
+    {
+      highlightClass: 'highlight',
+    },
+  );
 
   const { highlightedParts } = useTextHighlight(
     computed(() => props.text),

@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
   import { ref, onMounted, onUnmounted } from 'vue';
+
   import chuckNorrisFacts from '@/data/chuckNorrisFacts.json';
 
   const facts = chuckNorrisFacts;
